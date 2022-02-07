@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="categoty_save.php" method="post">
+    <form action="category_save.php" method="POST">
         <div>
             <label>Name</label>
             <input type="text" value="" name="name" placholder="Placer ici votre nom">

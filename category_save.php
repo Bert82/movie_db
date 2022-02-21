@@ -9,6 +9,6 @@ if(!isset($_POST['name']) || empty($_POST['name'])) {
 
 $name = $_POST['name'];
 
-$bd->query('insert into category (name) values ("'.$name'")');
 
 
+$result=$db->query('insert into category (name) values ("'.$name.'")');

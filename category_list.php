@@ -33,7 +33,7 @@ $categories = $request->fetchAll(PDO::FETCH_ASSOC);
             <td><?php echo $category ['name'] ?></td>
             <td>
              <a onclick= "return confirm('voulez-vous vraiment supprimer cet élément?')" href="category_remove.php?id=<?php echo $category ['id'] ?>" button class="btn btn-danger">Supprimer</a>
-             <a href="category.php?id=<?php echo $category ['id'] ?>" button class="btn btn-success">Modifier</a>
+             <a href="category.php?id=<?= $category ['id'] ?>" button class="btn btn-success">Modifier</a>
         </td>
 
         </tr>

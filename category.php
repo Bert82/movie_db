@@ -1,15 +1,22 @@
 <?php
-//recuperer id si id
-$id = $_GET['id'] ?? null;
 
 //recuperer connection BDD
 require_once ('connexion.php');
 
+//recuperer id si id
 //requete pour récuperer categorie
-$query = $db->query('select from category');
+//recuperer la cathegorie
 
-//print_r categorie;
+$id = $_GET['id'] ?? null;
+$category = null;
 
+if ($id !=null) {
+    $query = $db->query('select * from category where id='.$id);
+    $category = $query->fetch(PDO::FETCH_ASSOC);
+    $url = '?id=' .$id;
+} else {
+    $url = '';
+}
 
 ?>
 
@@ -22,10 +29,10 @@ $query = $db->query('select from category');
     <title>Document</title>
 </head>
 <body>
-    <form action="category_save.php" method="POST">
+    <form action="category_save.php<?= $url ?>" method="POST">
         <div>
             <label>Name</label>
-            <input type="text" value="" name="name" placeholder="Placer ici votre nom">
+            <input type="text" value="<?= $category['name'] ?? '' ?>" name="name" placeholder="Placer ici votre nom">
         </div>
 
         <input type="submit" value= "envoyer">

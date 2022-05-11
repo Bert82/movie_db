@@ -9,12 +9,14 @@ require_once ('connexion.php');
 
 $id = $_GET['id'] ?? null;
 
-$query = $db->query("select * from movie where id=$id");
-$movie = $query->fetch(PDO::FETCH_ASSOC);
+if($id!=null) {
+    $query = $db->query("select * from movie where id=$id");
+    $movie = $query->fetch(PDO::FETCH_ASSOC);
 
 if ($movie == null) {
     header('location: movie_list.php');
     exit;
+}
 }
 
 ?>
@@ -29,6 +31,9 @@ if ($movie == null) {
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 mt-3">
 
 <form method="post" action="movie_save.php<?= $id != null ? "?id=$id" : ''?>">
 
@@ -49,7 +54,17 @@ if ($movie == null) {
 
   <button type="submit" value="envoyer" class="btn btn-primary">Envoyer</button>
 </form>
+        </div>
+    </div>
 
+<div class="row mt-5">
+    <div class="col-6">
+        <?php include('category_movie.php'); ?>
+    </div>
+
+
+    <div class="col-6">AUTRE CHOSE</div>
+</div>
 
 </body>
 </html>

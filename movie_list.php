@@ -19,6 +19,8 @@ $movies = $request->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
+<div class="container-fluid">
+<a href="movie_edit.php" button class="btn btn-success m-3">Ajouter</a>
 
     <table class="table table-dark">
         <tr>
@@ -43,6 +45,6 @@ $movies = $request->fetchAll(PDO::FETCH_ASSOC);
     <?php endforeach; ?>
 
     </table>
-
+</div>
 </body>
 </html>
